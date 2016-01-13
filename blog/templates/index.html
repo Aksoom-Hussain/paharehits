@@ -9,15 +9,15 @@
     <meta name="author" content="Grayrids">
 		<title>Pahari Hits</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="fonts/font-awesome.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/static/fonts/font-awesome.min.css" type="text/css" media="screen">
     <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
-    <link href="css/material.min.css" rel="stylesheet">
-    <link href="css/ripples.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="/static/css/material.min.css" rel="stylesheet">
+    <link href="/static/css/ripples.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/responsive.css" rel="stylesheet">
+    <link href="/static/css/animate.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -65,134 +65,49 @@
         <div class="section-header">
           <h1 class="section-title wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="100ms">Latest Music</h1>
           <h2 class="section-subtitle wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="400ms">Recent</h2>
-        </div>
-        <div class="row">
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-action-settings"></i>
-              </div>
-              <div class="features-text">
-                <h4>Built-with Bootstrap 3.5.x</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
-                </p>
-              </div>
-             </div>
-          </div>
-
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="450ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-action-done-all"></i>
-              </div>
-              <div class="features-text">
-                  
-                  
-                <h4>Material Design</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="550ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-image-blur-linear"></i>
-              </div>
-              <div class="features-text">
-                <h4>Clean and Refreshing</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
-                </p>
-              </div>
-            </div>
-          </div>            
-
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="650ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-communication-business"></i>
-              </div>
-              <div class="features-text">
-                <h4>Ready for Business or App</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="750ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-action-favorite"></i>
-              </div>
-              <div class="features-text">
-                <h4>Crafted with Love</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="850ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-hardware-phonelink"></i>
-              </div>
-              <div class="features-text">
-                <h4>Fully Responsive Layout</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
-                </p>
-              </div>
-            </div>
-          </div>   
-        </div>
-      </div>
-    </section>
-    <section id="features2" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h1 class="section-title wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="100ms">Kumaoni Songs</h1>
-          
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-action-settings"></i>
-              </div>
-              <div class="features-text">
-                <h4>Built-with Bootstrap 3.5.x</h4>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
-                </p>
-              </div>
-             </div>
-          </div>
-          
-        </div>
+        <div class="card-deck-wrapper">      
+             {% block content1 %}
+             {% for post in object_list  %}
+          <div class="card">
+    <div class="card-main">
+        <div class="card-inner" aling = "center">{{ post.title }}</div>
+        <div class ="post_meta">on {{post.date}}
+    </div>
+    <div class = "post_body">
+    {{post.artist|safe|linebreaks}} 
+</div> </div>  
+        <div class="card-action"><a href="/blog/{{post.dwn}}" class="btn btn-lg btn-primary wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">Download</a></div>
+        
+        {% endfor  %}
+        {% endblock %}
+    </div>
+    </div>
+</div>
+         </div>
+    
         <div class="row">
             </section>
      <section id="features3" class="section">
       <div class="container">
         <div class="section-header">
           <h1 class="section-title wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="100ms">pahari Songs</h1>
-         <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="650ms">
+         <div class="col-md col-sm-10 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="650ms">
+             <div class="card-deck-wrapper">
              {% block content %}
+             {% for post in object_list  %}
           <div class="card">
     <div class="card-main">
-        <div class="card-inner"> ... </div>
-        <div class="card-action"> ... </div>
-        <a href="#features" class="btn btn-lg btn-border wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">Download</a>
+        <div class="card-inner" aling = "center">{{ post.title }}</div>
+        <div class ="post_meta">on {{post.title}}
+    </div>
+    <div class = "post_body">
+    {{post.artist|safe|linebreaks}} 
+</div> </div>  
+        <div class="card-action"><a href="/blog/{{post.dwn}}" class="btn btn-lg btn-primary wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">Download</a></div>
+        
+        {% endfor  %}
         {% endblock %}
+    </div>
     </div>
 </div>
          </div>
@@ -270,19 +185,19 @@
     </div>  
 		
 
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/ripples.min.js"></script>
-    <script src="js/material.min.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/jquery.mmenu.min.all.js"></script> 
-    <script src="js/count-to.js"></script>   
-    <script src="js/jquery.inview.min.js"></script>     
-    <script src="js/main.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/jquery.nav.js"></script>      
-    <script src="js/smooth-on-scroll.js"></script>
-    <script src="js/smooth-scroll.js"></script>
+    <script src="/static/js/jquery-2.1.4.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/ripples.min.js"></script>
+    <script src="/static/js/material.min.js"></script>
+    <script src="/static/js/wow.js"></script>
+    <script src="/static/js/jquery.mmenu.min.all.js"></script> 
+    <script src="/static/js/count-to.js"></script>   
+    <script src="/static/js/jquery.inview.min.js"></script>     
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/classie.js"></script>
+    <script src="/static/js/jquery.nav.js"></script>      
+    <script src="/static/js/smooth-on-scroll.js"></script>
+    <script src="/static/js/smooth-scroll.js"></script>
     
 
     <script>
