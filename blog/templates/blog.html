@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 {% block content  %}
 {% for post in object_list  %}
 <h3>{{ post.title }}</h3>
@@ -7,7 +7,7 @@
 </div>
 
 <div class = "post_body">
-    {{post.body|safe|linedreaks}} 
+    {{post.body|safe|linebreaks}} 
 </div>   
 {% endfor  %}
 {% endblock  %}

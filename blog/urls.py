@@ -1,11 +1,10 @@
-from django.conf.urls import urls
+from django.conf.urls import  url
 from django.views.generic import ListView
 from blog.models import Post
 
-urlpatterns =['',
+urlpatterns =[
     url(r'^',ListView.as_view(
-        queryset = Post.objects.all().order_by(-date)[:10],
+        queryset = Post.objects.all().order_by("-date")[:10],
         template_name = "blog.html"
     )),
-    
-]
+]    
